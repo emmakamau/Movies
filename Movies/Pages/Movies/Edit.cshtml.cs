@@ -20,9 +20,10 @@ namespace Movies.Pages.Movies
             _context = context;
         }
 
-        [BindProperty]
+        [BindProperty] //attribute enables Model binding.
         public Movie Movie { get; set; } = default!;
 
+        //The OnGetAsync method fetches the movie from the database and returns the Page method.
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null || _context.Movie == null)
